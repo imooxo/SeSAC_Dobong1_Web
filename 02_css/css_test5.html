@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector 실습4 - 줄무늬 모양 만들기, before,after</title>
+</head>
+<style>
+    .stripes > *{
+        color:white;
+        background-color: navy;
+        font-size: 20px;
+    }
+
+    .stripes > div:nth-child(2){
+        background-color: yellow;
+        color:black;
+    }
+
+    .stripes > div:nth-child(6){
+        background-color: yellow;
+        color:black;
+    }
+
+    .stripes > div:nth-child(10){
+        background-color: yellow;
+        color:black;
+    }
+
+    .box:hover::before{
+        content:'택시 ';
+        color:gray;
+    }
+
+    .box:hover::after{
+        content:' 빨리!';
+        color:gray;
+    }
+</style>
+<body>
+    <div class="stripes">
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+    </div>   
+    <div class="box">여기요!</div>
+</body>
+</html>
