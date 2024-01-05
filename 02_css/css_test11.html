@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr3 실습 요소 쌓임 순서 및 z-index</title>
+    <style>
+
+.container{
+    width:500px;
+    height: 500px;
+    background-color: gold;
+    position: relative;
+}
+.container div{
+    width:100px;
+    height: 100px;
+    position: absolute;
+}
+.item1{
+    background-color: aquamarine;
+    z-index: 1;
+}
+.item2{
+    background-color: aliceblue;
+    left:30px;
+    top:30px
+}
+
+.item3{
+    position: fixed;
+    background-color: pink;
+    top:60px;
+    left: 60px;
+    /* z-index: 1; */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+    </div>
+
+</body>
+</html>

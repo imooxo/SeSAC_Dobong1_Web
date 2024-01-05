@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr4실습 - 배경 적용하기</title>
+    <style>
+body{
+    height: 2000px;
+}
+
+.box{
+    display: inline-block;
+    width: 800px;
+    height: 500px;
+    background-color: skyblue;
+}
+
+.background-image01{
+    background-image: url('https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a');
+    background-position: center;
+    background-repeat: repeat-x;
+}
+.background-image02{
+    background-image: url('https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a');
+    background-size: contain;
+    background-position:100px 30px;
+    background-repeat: no-repeat;
+}
+.background-image03{
+    background-image: url('https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a');
+    background-size: cover; 
+}
+
+    </style>
+</head>
+<body>
+    <div class="box background-image01"></div>
+    <div class="box background-image02"></div>
+    <div class="box background-image03"></div>
+
+</body>
+</html>

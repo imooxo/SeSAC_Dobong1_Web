@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr5실습 - flex-direction, flex-wrap, align-content</title>
+<style>
+.container{
+    background-color: bisque;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto; 
+    display: flex;
+    /* 1) 가로 방향으로 아이템 쌓도록 설정 */
+    /* 시작점 기준으로 가로 쌓기 설정 */
+    /* flex-direction: row; */
+    /* 끝점을 기준으로 가로 쌓기 설정 */
+    /* flex-direction: row-reverse; */
+
+    /* 2) 세로 방향으로 아이템이 쌓이도록 설정*/
+    /* 시작점 기준으로 세로 쌓기 설정 */
+    /* flex-direction: column; */
+    /* 끝점을 기준오로 세로 쌓기 설정*/
+    flex-direction: column-reverse;
+}
+.items{
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 100px;
+}
+
+.item1{
+    background-color: red;
+}
+.item2{
+    background-color: orange;
+}
+.item3{
+    background-color: yellow;
+}
+
+.container2{
+    background-color: beige;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    /* 1)컨테이너 안에 한줄이 되도록 설정*/
+    display: flex;
+    /* 2)컨테이너 안에 두줄이 되도록 설정 */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+}
+
+.itemss{
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 100px;
+}
+
+.item01{
+    background-color: red;
+}
+.item02{
+    background-color: orange;
+}
+.item03{
+    background-color: yellow;
+}
+.item04{
+    background-color: yellowgreen;
+}
+.item05{
+    background-color: green;
+}
+.item06{
+    background-color: blue;
+}
+.item07{
+    background-color: purple;
+}
+.item08{
+    background-color: black;
+}
+
+
+.container3{
+    background-color: blanchedalmond;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /*1.컨테이너 안에 한줄이 되도록 설정*/
+    /*1-1 해당 아이템을 가로 수직 정렬*/
+    /* flex-direction:row; */
+    /*1-2 해당 아이템을 세로 수직 정렬*/
+    /* flex-direction:column; */
+
+    /*2.컨테이너 안에 두줄이 되도록 설정*/
+    /*2-1 해당 아이템을 하나로 뭉쳐서 가로, 세로 수직 정렬하기*/
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-direction:column;
+
+}
+
+.itemsse{
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 100px;
+}
+
+.item001{
+    background-color: red;
+}
+.item002{
+    background-color: orange;
+}
+.item003{
+    background-color: yellow;
+}
+.item004{
+    background-color: yellowgreen;
+}
+.item005{
+    background-color: green;
+}
+.item006{
+    background-color: blue;
+}
+.item007{
+    background-color: purple;
+}
+.item008{
+    background-color: black;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="items item1">1</div>
+        <div class="items item2">2</div>
+        <div class="items item3">3</div>
+    </div>
+    <hr/>
+    <div class="container2">
+        <div class="itemss item01">1</div>
+        <div class="itemss item02">2</div>
+        <div class="itemss item03">3</div>
+        <div class="itemss item04">4</div>
+        <div class="itemss item05">5</div>
+        <div class="itemss item06">6</div>
+        <div class="itemss item07">7</div>
+        <div class="itemss item08">8</div>
+    </div>
+    <hr/>
+    <div class="container3">
+        <div class="itemsse item001">1</div>
+        <div class="itemsse item002">2</div>
+        <div class="itemsse item003">3</div>
+        <div class="itemsse item004">4</div>
+        <div class="itemsse item005">5</div>
+        <div class="itemsse item006">6</div>
+        <div class="itemsse item007">7</div>
+        <div class="itemsse item008">8</div>
+    </div>
+</body>
+</html>

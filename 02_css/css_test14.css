@@ -1,0 +1,78 @@
+.container{
+    position: relative;
+    width: 500px;
+    height: 300px;
+}
+.bug1{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border-radius: 50%;
+    position: relative;
+    top:150px;
+    left: 155px;
+    z-index: 1;
+}
+
+.bug2{
+    width: 50px;
+    height: 50px;
+    background-color: yellowgreen;
+    border-radius: 50%;
+    position: relative;
+    left:185px;
+    top: 125px;
+    z-index: 2;
+}
+.bug3{
+    width: 50px;
+    height: 50px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    position: relative;
+    left:205px;
+    top: 100px;
+    z-index: 3;
+}
+.bug4{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(177, 207, 117);
+    border-radius: 50%;
+    position: relative;
+    top: 75px;
+    left: 210px;
+    z-index: 4;
+}
+.bug5{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(206, 233, 152);
+    border-radius: 50%;
+    position: relative;
+    top:50px;
+    left: 230px;
+    z-index: 6;
+}
+div img{
+    position: absolute;
+    z-index: 5;
+}
+.bug1>.item1{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    top:10px;
+    left:8px;
+}
+.bug1>.item1>.item2{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    top:5px;
+
+}
