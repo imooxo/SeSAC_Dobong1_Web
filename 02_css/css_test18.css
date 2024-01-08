@@ -1,0 +1,33 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: rgb(210, 207, 207);
+}
+
+.container{
+    justify-content: center;
+    align-items: center;
+}
+.beach{
+    width:500px;
+    height: 300px;
+    position: absolute;
+    transition: 1s;
+    transform: skew(30deg);
+}
+.beach1{
+    width: 100%;
+    height: 100%;
+}
+.beach2{
+    width: 100%;
+    height: 100%;
+}
+.beach3{
+    width: 100%;
+    height: 100%;
+}
+.beach:hover{
+    transform: skewY(1deg);
+    z-index: 4;
+}
