@@ -34,6 +34,7 @@ let empty = null;
 console.log(empty)
 
 // 5. 배열(array)
+// []
 let fruits = ["orange","pineapple","strawberry"]
 console.log(fruits[2])
 console.log(fruits[0])
@@ -62,3 +63,105 @@ console.log(letters[1][3]) // 이
 console.log(letters[0][1]) // 스
 console.log(letters[0][3]) // 크
 console.log(letters[2][2]) // 림
+
+// 3차원 배열
+const nums =[
+    [
+        [1,2,3],
+        [4,5,6]
+    ],
+    [
+        [7,8,9],
+        [10,11,12]
+    ]
+]
+// 8뽑기
+console.log(nums[1][0][1]) // 8
+
+
+/* object */
+// {}
+// 배열은 순서가 있는 반면, object는 키-값 형태로 저장
+// 데이터에 접근 시 key 이름을 이용해서 접근
+// {키 이름 : value, 키이름2:vlaue2}
+
+let cat = {
+    name:'나비', //key이름:value
+    age:2,
+    isCute:true,
+    mew: function(){
+        return"냐옹"
+    }
+}
+
+// 1) 점 표기법
+console.log(cat.name) //나비
+console.log(cat.age) //2
+console.log(cat.isCute) //true
+console.log(cat.mew()) //냐옹
+/* 추가 */
+cat.like = 'tuna'
+/* 변경 */
+cat.age = 3
+console.log(cat)
+
+// 2) 대괄호 표기법
+let dog = {
+    name: 'coco',
+    isPoodle: true,
+    age: 3,
+    sibling:['max','lucy']
+}
+console.log(dog.name) //coco
+console.log(dog['name']) //coco
+console.log(dog['age']) //3
+console.log(dog['sibling'][1]) //lucy
+
+let mathScore = prompt("수학 점수를 입력 하세요"); //'50'
+let engScore = prompt("영어 점수를 입력 하세요"); //'50
+/* 명시적 형변환 */
+let mathNumber = Number(mathScore)
+let engNumber = Number(engScore)
+
+let avg = (mathNumber + engNumber) /2 // '50'
+console.log(avg);
+
+// typeof 데이터의 타입을 확인 가능
+console.log(typeof '문자') //string
+console.log(typeof mathScore) //string
+console.log(typeof mathNumber) //number
+console.log('===============')
+console.log(typeof true) //boolean
+console.log(typeof []) //object
+console.log(typeof {}) //object
+console.log(typeof NaN) //number
+console.log(typeof null) //object
+console.log(typeof undefined) //undefined
+
+// 형변환
+console.log('=================================')
+let str1 = true; //boolean
+let str2 = 123; // number
+let str3 = null; //null, object
+
+console.log(String(str1)) //true
+console.log(String(str2)) //123
+console.log(String(str3)) //null
+console.log(typeof String(str1)) //string
+console.log(typeof String(str2)) //string
+console.log(typeof String(str3)) //string
+
+// 2. ? >> number
+let n1 = true; //true -> 1
+let n2 = false; //false -> 0
+let n3 = 123; 
+let n4 = '123.9'; 
+
+console.log(Number(n1)) // 1
+console.log(Number(n2)) // 0
+console.log(Number(n3)) // 123
+console.log(Number(n4)) // 123.9
+console.log(typeof Number(n4)) //number
+console.log(parseInt(n4)) // 123, 소수점은 버리고 정수형으로 변경됨
+
+
