@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 - transform 함수 여러개 사용</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        transition: 1s;
+        border: 1px solid black;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+
+      .box1:hover {
+        /* transform: translateX(50px) scaleX(2); */
+        width: 200px;
+      }
+
+      .box2:hover {
+        transform: translateX(50%) skewX(-45deg);
+      }
+
+      .box3:hover {
+        border-radius: 50%;
+        background-color: red;
+        transform: translateX(300px) rotate(180deg);
+      }
+
+      .box4:hover {
+        transform: translateY(50px) perspective(200px) rotateY(360deg) scale(2);
+        background: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+  </body>
+</html>

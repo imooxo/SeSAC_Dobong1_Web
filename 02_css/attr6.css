@@ -53,3 +53,46 @@
     backface-visibility: visible;
     /* backface-visibility: hidden; */
 }
+
+.box{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: black;
+}
+
+.box1:hover{
+    background-color: pink;
+    height: 120px;
+    width: 120px;
+
+    /* duration 1s = 1초 동안 자연스럽게 변화*/
+    transition-duration: 1s;
+
+    /*3s = delay통해서 천천히 변화 */
+    /*transition-delay: 3s;*/
+
+    /* 가로 길이만 마우스 올릴 시 즉각 변하고 세로만 자연스럽게 변화*/
+    /*transition-property: height;*/
+
+    /*transition-timing-function: linear;*/
+    transition-timing-function: ease;
+
+}
+.box2:hover{
+    /* transition 단축 속성 */
+    /* trahsition: property duration(필수) function delay */
+    background-color: aqua;
+    transform: translateX(1oopx) scaleX(2);
+
+    /*transition: transform 0.5s linear 2s;*/
+    /*transition: 2s 0.5s;*/
+    transition: 2s;
+}
+.box3:hover{
+    /* 0.6 = .6 */
+    transition: .6s;
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+    display: none;
+}

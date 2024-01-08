@@ -1,0 +1,15 @@
+p {
+    position: fixed;
+    animation: sentence-slide 3s steps(100, end);
+}
+
+@keyframes sentence-slide {
+    from {
+        left: 100%;
+        width: 100%;
+    }
+    to {
+        left: 0%;
+        width: 100%;
+    }
+}
