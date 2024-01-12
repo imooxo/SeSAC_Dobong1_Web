@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 요소 추가, 삭제</title>
+    <!-- js 파일 분리해서 사용하는 경우 defer 추가해서 DOM 요소 로드 후에 실행해 줄 수 있다.-->
+    <script defer>
+        let ul = document.querySelector('ul')
+        console.log(ul) // null
+
+        function createNode(){
+            //let ul = document.querySelector('ul');
+            //console.log(ul);
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트';
+            console.log('li : ',li);
+
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li id="li">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <!-- button*8 -->
+    <button onclick="createNode()">createNode</button>
+    <button>appendNode</button>
+    <button>appendChildNode</button>
+    <button>prependNode</button>
+    <button>before</button>
+    <button>after</button>
+    <button>removeNode</button>
+    <button>removeChildNode</button>
+</body>
+</html>
