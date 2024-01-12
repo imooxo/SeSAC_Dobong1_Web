@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 실습1 - 요소 선택 및 다루기_ver2</title>
+</head>
+<body>
+    <h3>1) HTML 내용 변경해보기_ver2</h3>
+    <div>민트 초코는 <span>맛있다 >_< </span></div>
+
+    <!-- script를 통해 스타일 변경 -->
+    <script>
+        // 1. 요소를 먼저 선택
+        //const div = document.querySelector('div'); 
+        const div = document.getElementsByTagName('div')[0];
+        //const span = document.querySelector('span'); 
+        const span = document.getElementsByTagName('span')[0];
+        
+        console.log(div, span);
+
+        // 2. 요소 각각 넣기
+        span.textContent = '맛없다 ㅡㅡ;;'; // span.innerText = '맛없다ㅡㅡ;;';
+        span.style.color = 'red';
+        span.style.fontWeight = '700';
+        //span.style = 'font-weight:700'; 
+        //=> 따로 적지 않으면 이전 style color:red가 없어지고 크기만 보임
+        //=> 왜? style이라는 하나의 속성에 color, font-weight 등등 존재
+    </script>
+</body>
+</html>

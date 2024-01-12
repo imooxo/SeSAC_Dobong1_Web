@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 실습1 - 요소 선택 및 다루기</title>
+</head>
+<body>
+    <h3>1) HTML 내용 변경해보기</h3>
+    <div>민트 초코는 <span>맛있다 >_< </span></div>
+
+    <script>
+        let span = document.querySelector("span");
+        span.innerHTML = "<strong>맛없다 ㅡㅡ;;</strong>";
+        span.setAttribute("style", "color: red");
+      </script>
+</body>
+</html>
