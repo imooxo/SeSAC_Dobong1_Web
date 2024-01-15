@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>jQuery 사용2</title>
+    <script>
+        // javaScript 요소 맨 뒤에 추가(append)
+        function appendJS() {
+            // 부모 ul에 자식 li를 append 한다면?
+            // 1. 부모 ul 선택하기
+            let ul = document.querySelector('ul');
+            // 2. 추가할 자식 li 요소를 만들기
+            let li = document.createElement('li');
+            // 3. li 요소의 내용 작성하기
+            li.innerText = 'red';
+            // 4. ul에 자식인 li를 append 하면 최종적으로 추가 됨
+            ul.append(li);
+        }
+
+        // jQuery 요소 맨 뒤에 추가(append)
+        function appendJQ() {
+            $('ul').append('<li>jQuery append</li>');
+        }
+
+
+        // javaScript 요소 맨 앞에 추가(prepend)
+        function prependJS() {
+        // 부모 ul에 자식 li를 append 한다면?
+        // 1. 부모 ul 선택하기
+        let ul = document.querySelector('ul');
+        // 2. 추가할 자식 li 요소를 만들기
+        let li = document.createElement('li');
+        // 3. li 요소의 내용 작성하기
+        li.innerText = 'red';
+        // 4. ul에 자식인 li를 append 하면 최종적으로 추가 됨
+        ul.prepend(li);
+        }
+        // jQuery 요소 맨 앞에 추가(prepend)
+        function prependJQ() {
+            $('ul').prepend('<li>jQuery prepend</li>');
+        }
+
+        // javaScript 형제 요소 앞에 추가(before)
+        function beforeJS(){
+            // 추가할 기준이 되는 요소 선택
+            let green = document.querySelector('.green');
+            // 추가할 요소 생성
+            let li = document.createElement('li');
+            li.innerText = 'before JS';
+            //기준이되는 형제 요소에 before 메소를 넣기
+            green.before(li);
+        }
+        // jQuery 형제 요소 앞에 추가(before)
+        function beforeJQ() {
+            $('.green').before('<li>jQuery before</li>');
+        }
+
+
+        // javaScript 형제 요소 뒤에 추가(after)
+        function afterJS(){
+            // 추가할 기준이 되는 요소 선택
+            let green = document.querySelector('.green');
+            // 추가할 요소 생성
+            let li = document.createElement('li');
+            li.innerText = 'before JS';
+            //기준이되는 형제 요소에 before 메소를 넣기
+            green.after(li);
+        }
+        // jQuery 형제 요소 뒤에 추가(after)
+        function afterJQ() {
+            $('.green').after('<li>jQuery after</li>');
+        }
+
+
+        // javaScript 선택 요소 삭제(remove)
+        function removeJS() {
+            let li = document.querySelector('#li2');
+            li.remove();
+        }
+        // jQuery 선택 요소 삭제(remove)
+        function removeJQ() {
+            $('#li2').remove();
+        }
+
+
+        // javaScript 자식 요소를 모두 삭제(empty)
+        function emptyJS() {
+            let nums = document.querySelector('.nums');
+            nums.innerHTML = '';
+        }
+        // jQuery 자식 요소를 모두 삭제(empty)
+        function emptyJQ() {
+            $('.nums').empty();
+        }
+
+
+
+        // 요소 탐색
+        // parent() : 부모요소 반환
+        function findParent() {
+            console.log($('#li2').parent());
+        }
+        
+        // parent() : 부모, 조상 요소 모두 반환
+        function findParents() {
+            console.log($('#li2').parents());
+        }
+
+        // 형제 요소 탐색
+        // next() : javaScript의 nextSibling와 비슷하다
+        function findNext() {
+            console.log($('#li2').next());
+            console.log($('#li2').next()[0]);
+        }
+
+        // prev() : javaScript의 prevSibling와 비슷하다
+        function findPrev() {
+            console.log($('#li2').prev());
+        }
+
+
+        // 자식 요소 탐색
+        // children() : 자식 요소를 모두 반환
+        function findChildren() {
+            console.log($('.nums').children());
+        }
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>orange</li>
+        <li class="green">green</li>
+        <li>navy</li>
+        <!-- 요소 추가 -->
+    </ul>
+    <button onclick="appendJS()">append js</button>
+    <button onclick="appendJQ()">append jQuery</button>
+
+    <button onclick="prependJS()">prepend js</button>
+    <button onclick="prependJQ()">prepend jQuery</button>
+
+    <button onclick="beforeJS()">before js</button>
+    <button onclick="beforeJQ()">before jQuery</button>
+
+    <button onclick="afterJS()">after js</button>
+    <button onclick="afterJQ()">after jQuery</button>
+
+    <!-- 요소 삭제 -->
+    <div>
+        <ul class = "nums">
+            <li>1</li>
+            <li id = "li2">2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <button onclick="removeJS()">remove js</button>
+    <button onclick="removeJQ()">remove jQuery</button>
+
+    <button onclick="emptyJS()">empty js</button>
+    <button onclick="emptyJQ()">empty jQuery</button>
+
+
+    <!-- 요소 탐색 -->
+    <button onclick="findParent()">findParent</button>
+    <button onclick="findParents()">findParents</button>
+    <button onclick="findNext()">findNext</button>
+    <button onclick="findPrev()">findPrev</button>
+    <button onclick="findChildren()">findChildren</button>
+
+
+
+
+<!-- 요소 추가
+    선택된 요소의 자식 요소 중 마지막으로 추가
+    $( 선택자 ).append( 요소 );
+        $("p").append(h1);
+        p.appendChild(h1);
+    
+    $( 선택자 ).prepend( 요소 );
+        • 선택된 요소의 자식 요소 중 첫번째로 추가
+    $( 선택자 ).before( 요소 );
+        • 선택된 요소의 형제 요소로 이전 형제로 추가
+    $( 선택자 ).after( 요소 );
+        • 선택된 요소의 형제 요소로 다음 형제로 추가
+-->
+
+<!-- 요소 삭제
+    $( 선택자 ).remove();
+        • 선택한 요소를 DOM 트리에서 삭제
+        • 인자로 선택자를 넘겨주면, 선택한 요소 중 조건을 만족하는 요소만 삭제
+    $( 선택자 ).empty();
+        • 선택한 요소의 자식 요소를 모두 삭제
+        • 선택된 요소는 남아 있고 그 안이 다 비워진다
+-->
+
+<!-- 요소 탐색
+    $( 선택자 ).parent().함수()
+        • 바로 위에 존재하는 하나의 부모 요소 선택
+    $( 선택자 ).parents().함수()
+        • 바로 위 부모뿐만 아니라 부모의 부모, 모든 조상을 선택
+    $( 선택자 ).next().함수()
+        • 선택된 요소 바로 다음에 위치한 형제 요소 선택
+    $( 선택자 ).prev().함수()
+        • 선택된 요소 바로 이전에 위치한 형제 요소 선택
+    $( 선택자 ).children().함수()
+        • 선택된 요소의 자식 요소 모두 선택
+-->
+</body>
+</html>
