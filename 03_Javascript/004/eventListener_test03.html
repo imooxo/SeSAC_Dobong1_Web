@@ -118,24 +118,24 @@
       /* 방법3 (가장 좋은 예시)
       // [계산] 버튼 클릭시 cal() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
       function cal() {
-      let v1 = Number(document.getElementById('value1').value);
-      let v2 = Number(document.getElementById('value2').value);
-      let op = document.getElementById('operator').value;
-      let result;
+        let v1 = Number(document.getElementById('value1').value);
+        let v2 = Number(document.getElementById('value2').value);
+        let op = document.getElementById('operator').value;
+        let result;
 
-      if (op === '+') {
-        result = v1 + v2;
-      } else if (op === '-') {
-        result = v1 - v2;
-      } else if (op === '*') {
-        result = v1 * v2;
-      } else if (op === '/') {
-        result = v1 / v2;
-      } else {
-        result = '오류 발생';
-      }
-      document.getElementById('result').value = result;
-      }
+        if (op === '+') {
+          result = v1 + v2;
+        } else if (op === '-') {
+          result = v1 - v2;
+        } else if (op === '*') {
+          result = v1 * v2;
+        } else if (op === '/') {
+          result = v1 / v2;
+        } else {
+          result = '오류 발생';
+        }
+        document.getElementById('result').value = result;
+        }
 
       // [초기화] 버튼 클릭시 resetInput() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
       function resetInput() {
@@ -148,6 +148,43 @@
       /* getElementById 사용 :
       id를 통해 엘리먼트를 반환한다. 
       만약 document에 구체적인 ID의 엘리먼트가 없다면 null을 반환한다.
+      */
+
+
+
+      /* 방법4 (가장 좋은 예시2)
+      // [계산] 버튼 클릭시 cal() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+      function cal() {
+        // 값1, 값2, 연산자 요소들을 선택
+        let v1 = Number(document.querySelector('#value1').value);
+        let v2 = Number(document.querySelector('#value2').value);
+        let op = document.querySelector('#operator').value;
+
+        console.log(v1,v2,op);
+        let result;
+
+        if (op === '+') {
+          result = v1 + v2;
+        } else if (op === '-') {
+          result = v1 - v2;
+        } else if (op === '*') {
+          result = v1 * v2;
+        } else if (op === '/') {
+          result = v1 / v2;
+        } else {
+          result = '오류 발생';
+        }
+          console.log(result);
+          document.getElementById('result').value = result;
+        }
+
+      // [초기화] 버튼 클릭시 resetInput() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+        function resetInput() {
+          document.querySelector('#value1').value = '';
+          document.querySelector('#value2').value = '';          
+          document.querySelector('#operator').value = '';
+          document.querySelector('#result').value = '';
+        }
       */
     </script>
   </body>

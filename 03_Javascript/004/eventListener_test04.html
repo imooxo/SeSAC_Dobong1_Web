@@ -153,6 +153,45 @@
       content.value = '';
     }
     */
+
+    /* 방법5 (가장 좋은 예시2)
+      // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+      function writeNote() {
+        // input 요소들의 value 값을 가져왔음
+        let name = document.getElementById('writer').value;
+        let content = document.getElementById('content').value;
+
+        // 추가할 부모 요소 선택
+        let table = document.getElementById('table');
+        
+        // tr 생성(td 태그를 넣기 위함)
+        let tr = document.getElementById('tr');
+
+        let tdWriter = document.createElement('td');
+        tdWriter.innerText = name;
+
+        let tdContent = document.createElement('td');
+        tdContent.innerText = content;
+
+        // 작성일 td 만들기
+        let tdDate = document.createElement('td');
+
+        // 현재 시간 가져올 때는 Date 객체 선언 및 활용
+        let now = new Date();
+        tdDate.innerText = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}`;
+
+
+        // tr에 위에서 만든 3개의 td 추가
+        tr.append(tdWriter, tdContent, tdDate);
+
+        // table에 tr 추가
+        table.append(tr);
+
+        // input 초기화
+        document.getElementById('writer').value = '';
+        document.getElementById('content').value = '';
+
+    */
     
     </script>
   </body>
