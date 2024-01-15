@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eventListner 실습4 - 방명록 등록하기</title>
+  </head>
+  <body>
+    <h1>여기는 방명록!!</h1>
+    <form>
+      <label for="writer">작성자</label>
+      <input type="text" id="writer" autocomplete="off" />
+      <br />
+      <br />
+
+      <label for="content">내용</label>
+      <input type="text" id="content" style="width: 500px" autocomplete="off" />
+      <br />
+      <br />
+
+      <button type="button" onclick="writeNote();">등록</button>
+    </form>
+
+    <br />
+    <br />
+
+    <table id="table" border="1" cellpadding="10" cellspacing="1">
+      <tr>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+      </tr>
+      <!-- 
+        코드 추가 예시
+        <tr>
+          <td>홍길동</td>
+          <td>하이</td>
+          <td>2022-10-05 12:34</td>
+        </tr>
+      -->
+    </table>
+
+    <script>
+      // TODO: practice14_설명.png 이미지의 조건을 만족하는 js 코드 작성
+      // writeNote() 함수를 미리 정의해두었습니다.
+      // 1. 등록버튼을 누르면 테이블의 열으로 input의 내용 추가
+      // 2. 작성일은 현재에 대한 작성 날짜와 시간이 들어가야 함
+      
+      /* 방법1 */
+      // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+      function writeNote() {
+        let writer = document.querySelector('#writer');
+        let content = document.querySelector('#content');
+        let table = document.querySelector('#table');
+
+        let user= document.createElement('td');
+        let contents= document.createElement('td');
+        let toDay= document.createElement('td');
+        user.textContent=writer.value;
+        contents.textContent=content.value;
+        let date = new Date();
+
+        toDay.textContent = `${date.getFullYear()}-${date.getDay()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+        console.log(toDay);
+        let guestbook = document.createElement('tr');
+        guestbook.appendChild(user);
+        guestbook.appendChild(contents);
+        guestbook.appendChild(toDay);
+        table.append(guestbook);
+        writer.value ='';
+        content.value = '';
+      }
+
+
+      /* 방법2
+      // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+      function writeNote() {
+        let writer = document.getElementById("writer");
+        let content = document.getElementById("content");
+        let table = document.getElementById("table");
+        table.innerHTML += `  <tr>
+        <th>${writer.value}</th>
+        <th>${content.value}</th>
+        <th>${new Date()}</th>
+      </tr>
+      `;
+        writer.value = "";
+        content.value = "";
+      }
+      */
+
+
+      /* 방법3 (가장 좋은 예시)
+    document.createElement('td');
+    tdWriter.innerText = name;
+
+    // 내용 cell 만들기
+    let tdContent = document.createElement('td');
+    tdContent.innerText = content;
+
+    // 작성일 cell 만들기
+    let tdDate = document.createElement('td');
+    let now = new Date();
+    tdDate.innerText = `${now.getFullYear()}-${
+        now.getMonth() + 1
+    }-${now.getDate()} ${now.getHours()}:${now.getMinutes()}`;
+
+    // tr에 위에서 만든 3개의 td 추가
+    tr.append(tdWriter, tdContent, tdDate);
+
+    // table에 tr 추가
+    table.append(tr);
+
+    // input 창 초기화
+    document.getElementById('writer').value = '';
+    document.getElementById('content').value = '';
+    }
+      */
+
+
+    /* 방법4
+    // [등록] 버튼 클릭시 writeNote() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
+    function writeNote() {
+      let writer = document.querySelector('#writer');
+      let content = document.querySelector('#content');
+      let table = document.querySelector('#table');
+      let newtr = document.createElement('tr');
+      let newtd1 = document.createElement('td');
+      let newtd2 = document.createElement('td');
+      let newtd3 = document.createElement('td');
+      let date = new Date();
+
+      function now() {
+            let y = date.getFullYear();
+            let m = date.getMonth() + 1;
+            let d = date.getDate();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+
+            return `${y}-${m}-${d} ${hour}:${min}`
+      }
+      
+      table.append(newtr);
+      newtr.append(newtd1);
+      newtr.append(newtd2);
+      newtr.append(newtd3);
+
+      newtd1.innerText = writer.value;
+      newtd2.innerText = content.value;
+      newtd3.innerText = now();
+
+      writer.value = '';
+      content.value = '';
+    }
+    */
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eventListner 실습2 - 댓글 등록하기</title>
+  </head>
+  <body>
+    <h1>댓글 등록하기</h1>
+    <form>
+      <label for="userid">아이디</label>
+      <input type="text" id="userid" name="userid" />
+      <label for="comment">댓글</label>
+      <input type="text" id="comment" name="comment" />
+      <button type="submit">등록</button>
+    </form>
+    <ul class="comment-list"></ul>
+
+    <script>
+      // 문제
+      // - [ ] 아이디 input과 댓글 input을 입력하고 [등록] 버튼을 누르면, 댓글이 추가됩니다.
+      //     - 폼을 "제출"헸을 때에 해당하는 이벤트는 무엇인가요?
+      // - [ ] 아이디 값과 댓글 값을 가져와야 합니다.
+      // - [ ] <li> 태그를 새로 만들고, "아이디 - 댓글내용" 형식이 되도록 설정합니다.
+      // - [ ] <ul class="comment-list"> 태그에 li를 추가합니다.
+      // - [ ] 아이디 input과 댓글 input을 초기화해야 합니다.
+      /*
+      1. 등록 버튼을 누르거나, input창이 focus된 채로 엔터키를 치면 댓글 등록
+      2. 댓글이 등록되면 아이디는 굵은 글씨
+      3. 댓글 등록 후 input창 초기화
+      */
+
+      /* 방법1 */
+      let btn = document.querySelector('button');
+      btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            let uid = document.querySelector('#userid');
+            let comment = document.querySelector('#comment');
+            let list = document.querySelector('.comment-list');
+            let li = document.createElement('li');
+            li.innerHTML = `<b>${uid.value}</b> - ${comment.value}`;
+            list.appendChild(li);
+      })
+
+      /* 방법2 
+      let userId = document.querySelector('#userid');
+      let comment = document.querySelector('#comment');
+      let button = document.querySelector('button');
+      let commentList = document.querySelector('.comment-list');
+      button.addEventListener('click', function () {
+        let li = document.createElement('li');
+        li.innerHTML = `<b>${userId.value}</b> : ${comment.value}`;
+        commentList.append(li);
+        userId.value = '';
+        comment.value = '';
+      });
+      */
+
+      /* 방법3 (가장 좋은 예시)
+      const form = document.querySelector('form');
+      const list = document.querySelector('.comment-list');
+
+      // form 요소의 button을 클릭하여 폼을 "제출"했을 때,
+      form.addEventListener('submit', function (e) {
+      e.preventDefault(); // 폼이 제출되고 새로고침 되는 것을 막음
+
+      const userid = document.querySelector('input[name="userid"]'); // userid 폼 요소에 접근하기
+      const comment = document.querySelector('input[name="comment"]'); // comment 폼 요소에 접근하기
+      // const userid = form.elements.userid;
+      // const comment = form.elements.comment;
+
+      const newComment = document.createElement('li'); // li 태그를 생성하기
+      newComment.innerHTML = `<b>${userid.value}</b> - ${comment.value}`; // 태그 내용으로 "Id - comment" 를 적어주기
+      list.append(newComment); // .comment-list 요소에 위에서 만든 li 태그 추가하기
+
+      userid.value = ''; // userid 입력창 초기화
+      comment.value = ''; // comment 입력창 초기화
+      });
+      */
+
+
+
+
+    </script>
+  </body>
+</html>

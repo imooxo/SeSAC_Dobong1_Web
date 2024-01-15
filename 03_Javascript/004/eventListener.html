@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>요소 addEventListener(이벤트, 명령)</title>
+    <title>요소(dom) addEventListener(이벤트, 명령)</title>
     <style>
         div{
             width:100px;
@@ -61,6 +61,27 @@
 
         input.addEventListener('focus',function(){
             console.log('input에 focus 이벤트 발생!!');
+        })
+
+        // keyboard
+        input.addEventListener('keydown',function(e){
+            console.log('e : ', e); // e :  KeyboardEvent {isTrusted: true, key: 'q', code: 'KeyQ', location: 0, ctrlKey: false, …}
+            console.log('e.target : ', e.target); // e.target :  <input type=​"text">​
+            console.log('e.target.value : ', e.target.value); // e.target.value :  qw / input text창에 작성한 글이 나옴(qw 작성했음)
+            console.log('input에 keydown 이벤트 발생!!'); 
+        }) //input text창에 키보드로 글 작성시 콘솔에 로그 작성
+        // 함수내에서만 envent 기능 구형
+
+
+        // scroll
+        let container = document.querySelector('.container');
+        // scroll 없을 때는 실행 x
+        container.addEventListener('scroll', function(){
+            console.log('container에 scroll 이벤트 발생!!');
+        })
+
+        window.addEventListener('scroll', function(){
+            console.log('window에 scroll 이벤트 발생!!');
         })
     </script>
 </body>
