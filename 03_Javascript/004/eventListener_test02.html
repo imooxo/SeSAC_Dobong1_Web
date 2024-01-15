@@ -29,6 +29,9 @@
       2. 댓글이 등록되면 아이디는 굵은 글씨
       3. 댓글 등록 후 input창 초기화
       */
+      
+      // 버튼 태그 요소 선택해서 click 이벤트 해도 되고
+      // form 요소 선택해서 submit 이벤트 처리해도 된다.
 
       /* 방법1 */
       let btn = document.querySelector('button');
@@ -56,31 +59,40 @@
       });
       */
 
-      /* 방법3 (가장 좋은 예시)
-      const form = document.querySelector('form');
-      const list = document.querySelector('.comment-list');
 
-      // form 요소의 button을 클릭하여 폼을 "제출"했을 때,
-      form.addEventListener('submit', function (e) {
+    /* 방법3 (가장 좋은 예시)
+    const form = document.querySelector('form');
+    const list = document.querySelector('.comment-list');
+
+    // form 요소의 button을 클릭하여 폼을 "제출"했을 때,
+    form.addEventListener('submit', function (e) {
       e.preventDefault(); // 폼이 제출되고 새로고침 되는 것을 막음
 
-      const userid = document.querySelector('input[name="userid"]'); // userid 폼 요소에 접근하기
-      const comment = document.querySelector('input[name="comment"]'); // comment 폼 요소에 접근하기
+      // userid 폼 요소에 접근하기
       // const userid = form.elements.userid;
-      // const comment = form.elements.comment;
+      // const userid = document.querySelector('#userid');
+      const userid = document.querySelector('input[name="userid"]'); //value 속성에 접근
 
+      // comment 폼 요소에 접근하기
+      // const comment = form.elements.comment;
+      const comment = document.querySelector('input[name="comment"]'); //value 속성에 접근
+
+      // 새로운 commemt 만들기(createElement 활용)
       const newComment = document.createElement('li'); // li 태그를 생성하기
       newComment.innerHTML = `<b>${userid.value}</b> - ${comment.value}`; // 태그 내용으로 "Id - comment" 를 적어주기
+      
+      // 자식 요소로 추가(append 활용)
       list.append(newComment); // .comment-list 요소에 위에서 만든 li 태그 추가하기
 
+
+      // input 초기화
       userid.value = ''; // userid 입력창 초기화
       comment.value = ''; // comment 입력창 초기화
-      });
-      */
 
-
-
-
+      //const userid = document.querySelector('input[name="userid"]').value;
+      //useridValue = ''; // input 요소의 값에 변화가 x
+    });
+    */
     </script>
   </body>
 </html>
