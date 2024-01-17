@@ -27,6 +27,26 @@
         $('button').click(function() {
             alert('클릭!');
         })
+
+        $('button').on('click', function() {
+            alert('클릭2');
+        })
+
+        // mouse over
+        $('button').mouseover(function(){
+            alert('mouse over');
+        })
+
+        // key down
+        $('input').keydown(function(e) { // (e) = 이벤트 객체
+            console.log('e :', e);
+            console.log('e.target :',e.target);
+            console.log('e.key :',e.key);
+            if(e.key == 'Enter') alert('enter 입력!');
+
+            console.log('this :',this);
+
+        })
     </script>
 </body>
 </html>
