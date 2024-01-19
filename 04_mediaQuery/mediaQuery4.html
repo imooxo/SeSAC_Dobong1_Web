@@ -16,6 +16,7 @@
   
         body {
           margin: 0;
+          height: 8000px;
         }
   
         ul {
@@ -29,6 +30,7 @@
           width: 100%;
           height: var(--nav-height-lg);
           z-index: 100;
+          position: fixed;
         }
   
         /* 768px 보다 클때의 header */
@@ -90,6 +92,33 @@
               cursor: pointer;
           }
         }
+
+        /* 미디어 쿼리 작성 768px 이하일 때_ver2*/
+        /*
+        @media screen and (max-width: 768px) {
+            header {
+                height: var(--nav-height-sm);
+            }
+            header .inner {
+                display: block;
+            }
+            header .inner .logo {
+                position: static;
+                line-height
+                text-align: center;
+            }
+            header .inner .menu {
+                display: block;
+                background-color : azure;
+                text-align: center;
+            }
+
+            header .inner .menu li {
+                padding: 10px 0px;
+                font-weight: 500;
+            }
+        }
+        */
     </style>
   </head>
   <body>
