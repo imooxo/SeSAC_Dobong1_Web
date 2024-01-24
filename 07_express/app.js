@@ -9,7 +9,33 @@ app.use("/static", express.static(__dirname + "/public"));
 app.get("/", (request, response) => {
   //get 요청이 들어왔을때 실행할 동작들
   //response.send("hello express! 안녕하세요 익스프레스");
-  response.render("index.ejs");
+
+  /* 
+      render의 두번쨰 인자에서
+      index.ejs 에서 사용할 정보 전달
+  */
+  response.render("index.ejs", {
+    btns: ["apple", "banana"],
+    isLogin: true,
+    userInfo: {
+      name: "jade",
+      msg: "식사는 맛있게 하셨나요?",
+    },
+  });
+});
+
+// 라우팅
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// page no found, 404 페이지는 맨 마지막에 설정
+app.get("*", (req, res) => {
+  res.render("404");
 });
 
 app.listen(PORT, function () {
