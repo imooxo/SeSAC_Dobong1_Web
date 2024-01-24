@@ -12,17 +12,10 @@ const server = http.createServer(function (request, response) {
     */
   //response.write('응답완료!')
   //response.end('<h3>진짜완료!</h3>')
-  response.write(data); // const data 보내기
-  response.end(); //end는 종료 시키는거 (아무것도 안쓰면 종료됨)
-});
-
-/*
+  /*
   예외처리 try{~} catch(err){}문
   try 스코프 내부 문장에서 오류가 났을 때 catch문으로 err를 보냄
-*/
-const server2 = http.createServer(function (request, response) {
-  const data = fs.readFileSync("./index.html");
-  response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+  */
 
   try {
     const data = fs.readFileSync("./index.html");
@@ -39,7 +32,25 @@ const server2 = http.createServer(function (request, response) {
     // finally란? 예외 발생과 상관없이 모두 실행시키고 싶은 경우 작성
     console.log("성공 실패 모두 실행됩니다.");
   }
+  response.write(data); // const data 보내기
+  response.end(); //end는 종료 시키는거 (아무것도 안쓰면 종료됨)
 });
+
+try {
+  const data = fs.readFileSync("./index.html");
+  response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+  response.write(data);
+  response.end();
+} catch (error) {
+  console.log(error);
+  const data = fs.readFileSync("./404.html");
+  response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+  response.write(data);
+  response.end();
+} finally {
+  // finally란? 예외 발생과 상관없이 모두 실행시키고 싶은 경우 작성
+  console.log("성공 실패 모두 실행됩니다.");
+}
 
 //on = addEvent와 같은 개념
 // 1. request 이벤트 : 클라이언트 요청
