@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습2_2 콜백 지옥</title>
+    <style>
+      body {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 실습2 배경색 변경 Callback을 Promise, async로 변경하기
+        2.1 async ~ await로-->
+    <h1>배경색이 1초에 한번씩 변경됩니다.</h1>
+    <!-- red, orange, yellow, green, blue, navy, purple -->
+  </body>
+  <script>
+    function bgChange(color) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          document.body.style.backgroundColor = color;
+          resolve();
+        }, 1000);
+      });
+    }
+
+    async function execute() {
+      await bgChange("red");
+      await bgChange("orange");
+      await bgChange("yellow");
+      await bgChange("green");
+      await bgChange("blue");
+      await bgChange("navy");
+      await bgChange("purple");
+    }
+  </script>
+</html>
