@@ -64,17 +64,24 @@
     </form>
 </body>
 <script>
-    const resultBox = document.querySelector('.result');
-    function axiosGet(){
-        const form = document.forms["register"];
-        const data = {
-            name: form.name.value,
-            gender:form.gender.value,
-            year:form.year.value,
-            month:form.year.value,
-            date:form.year.value
+const resultBox = document.querySelector('.result');
+
+function axiosGet() {
+    const form = document.querySelector("register");
+
+    const name = document.getElementsByName("name");
+    const gender = document.getElementsByName("gender");
+    const year = document.getElementsByName("year");
+}
+    //체크박스 배열
+    const checkarr = [];
+    const favorite = document.getElementsByName('favorite');
+    for (let i = 0; i < favorite.length; i++) {
+        if (favorite[i].checked == true) {
+            checkarr.push(favorite[i].value)
         }
-    }
+    };
+
     
 </script>
 </html>
