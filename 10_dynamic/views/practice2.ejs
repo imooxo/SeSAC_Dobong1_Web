@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>실습문제2 (axios post 로그인)</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    .success {
+      color: blue;
+      font-weight: 700;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    label {
+      display: flex;
+    }
+
+    label span {
+      width: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <form name="login">
+    <label>
+      <span>아이디</span>
+      <input type="text" name="userId" required />
+    </label>
+    <label>
+      <span>비밀번호</span>
+      <input type="password" name="userPw" required />
+    </label>
+    <br />
+    <button type="button" onclick="clickLogin()">로그인</button>
+  </form>
+  <div class="message"></div>
+  <script>
+    const form = document.forms["login"];
+    const message = document.querySelector(".message");
+
+    function clickLogin() {
+      // 유효성 검증(required 표시된 항목에 대해서 체크)
+      console.log(form.userId.checkValidity());
+      if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+        message.textContent = "아이디와 비밀번호는 필수 값입니다.";
+        return;
+      }
+
+      const data = {
+        id: form.userId.value,
+        password: form.userPw.value,
+      };
+      axios({
+          method: "POST",
+          url: "/axios-practice2",
+          data: data,
+        })
+        .then(function(response) {
+          console.log(response.data);
+          // message : 성공시 파란글자, 실패시 빨간 글자
+          if (response.data.isSuccess) {
+            // 로그인 성공
+            message.textContent = `${response.data.userInfo.id}님 환영합니다.`;
+            message.classList.add("success");
+            message.classList.remove("error");
+          } else {
+            // 로그인 실패
+            message.textContent = `로그인실패, 아이디 또는 패스워드 오류😢`;
+            message.classList.remove("success");
+            message.classList.add("error");
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  </script>
+</body>
+
+</html>

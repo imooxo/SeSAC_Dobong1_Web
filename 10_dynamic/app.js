@@ -69,3 +69,37 @@ app.listen(PORT,()=>{
     console.log(`http://localhost:${PORT}`);
 })
 
+
+// 실습문제1 axios로 get 회원가입
+const id = "pororo";
+const pw = "1234";
+app.get('/practice1',(req,res)=>{
+    res.render("practice1");
+})
+
+app.get('/axios-practice1',(req,res)=>{
+    console.log(req.query);
+    res.send(req.query);
+});
+
+// 실습문제2 axios로 post 로그인
+app.get('/practice2',(req,res)=>{
+    res.render("practice2");
+})
+app.post('/axios-practice2',(req,res)=>{
+    console.log(req.body);
+    // 서버의 계정정보와, 클라이언트의 계정정보가 일치하는지 확인 절차
+    
+    //구조분해 할당
+    const {id:clientId, password:clientPw} = req.body;
+
+    if(clientId === id && clientPw === pw){
+        res.send({
+        userInfo: req.body,
+        //...req.body,
+        isSuccess: true,
+        });
+    }else{
+        res.send({isSuccess:false});
+    }
+});
