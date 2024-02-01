@@ -10,6 +10,7 @@ app.set("view engine","ejs");
 app.set("views","./views");
 // static 폴더 설정
 app.use("/uploads", express.static(__dirname + "/uploads"));
+app.use("/static", express.static(__dirname + "/static"));
 app.use("/static", express.static(__dirname + "/public"));
 
 // body-parser
@@ -25,7 +26,7 @@ const upload = multer({
 const uploadDetail = multer({
     storage:multer.diskStorage({
         destination: function(req, file, cb){
-            cb(null, "uplloads/");
+            cb(null, "uploads/");
         },
         filename: function(req, file, done){
             const extension = path.extname(file.originalname);
@@ -40,12 +41,19 @@ app.get("/", function (req,res){
     res.render("index");
 });
 
-app.post("/upload", uploadDetail.single("userfile"),function (req,res){
+app.post("/upload", uploadDetail.single("userImg"),function (req,res){
     console.log(req.file);
     console.log(req.body);
-    res.send("파일 업로드 완료");
-})
-
+    //res.send("파일 업로드 완료");
+    const userInfo = req.body;
+    res.render("result", {
+        userName: userInfo.userName,
+        userId: userInfo.userId,
+        userPw: userInfo.userPw,
+        userAge: userInfo.userAge,
+        userImg: req.file.path,
+      });
+    });
 
 app.listen(PORT,()=>{
     console.log(`${PORT} is open!!`);
