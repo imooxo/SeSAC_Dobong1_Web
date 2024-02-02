@@ -59,3 +59,4 @@ app.listen(PORT,()=>{
     console.log(`${PORT} is open!!`);
     console.log(`http://localhost:${PORT}`);
 })
+//데이터의 흐름을 파악하자
