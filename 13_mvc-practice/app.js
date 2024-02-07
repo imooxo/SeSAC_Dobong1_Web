@@ -1,31 +1,26 @@
-const express = require("express");
+const express = require('express');
+const { route } = require('./routes/user');
 const app = express();
 const PORT = 8080;
 
-app.set("view engine", "ejs");
-app.set("views", "./views");
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
-//body정보를 읽을 수 있도록
-// body-paser
-app.use(express.urlencoded({extended:true}));
+// body 정보 미들웨어
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//const indexRouter=require('./routes/index');
-const indexRouter = require('./routes');
-// localhost:8080/ 경로를 기본으로 하는 경로는
-// indexRouter에서 처리
-app.use("/", indexRouter);
-
-
-// localhost:8080/user 경로를 기본으로 하는 경로는
-// userRouter에서 처리 
-const userRouter = require("./routes/user")
-app.use("/user", indexRouter);
-
-app.get("*",(req,res)=>{
-    res.render("404");
+app.get('/', (req, res) => {
+  res.render('index');
+});
+// axios post 실습
+app.get('/axios-post', (req, res) => {
+  res.render('axiosPost');
 });
 
-app.listen(PORT,()=>{
-    console.log(`http://localhost:${PORT}`);
+const userRouter = require('./routes/user');
+app.use('/user', userRouter);
+
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
 });
