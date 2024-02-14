@@ -4,6 +4,7 @@ exports.main = (req, res) => {
     res.render("index");
   };
   
+// GET /visitors
   exports.getVisitors = (req, res) => {
     // visitor.ejs에 데이터 보내주기
 
@@ -18,3 +19,44 @@ exports.main = (req, res) => {
     }) 
   };
 
+
+// GET /visitor / :id
+exports.getVisitor = (req, res) => {
+    console.log(req.parms);
+    console.log(req.params.id);
+
+    Visitor.getVisitor(req.params.id, (result)=>{
+        console.log("Cvisitor.js 데이터 하나 조회", result); // { } 객체 하나만!
+        res.send(result);
+    });
+};
+
+
+  // POST /visitor (등록)
+exports.postVisitor = (req,res) => {
+    console.log(req.body); // {name, comment}
+    Visitor.postVisitor(req.body, (result)=>{
+        console.log("Cvisitor.js post", result);
+        res.send({id:result, name:req.body.name, comment:req.body.comment});
+    });
+};
+
+// DELETE /visitor (삭제)
+exports.deleteVisitor = (req, res) => {
+    console.log(req.body);
+    console.log(req.body.id);
+    Visitor.deleteVisitor(req.body.id, (result) => {
+        console.log("Cvisitor.js delete", result);
+        res.send("몇 번 방명록 삭제 완료!");
+    });
+};
+
+
+// PATCH /visitor (수정)
+exports.patchVisitor = (req,res) => {
+    console.log(req.body); // {id, name, comment}
+    Visitor.patchVisitor(req.body,(result) => {
+        console.log("Cvisitor.js patch", result);
+        res.send("수정 완료!");
+    });
+};
