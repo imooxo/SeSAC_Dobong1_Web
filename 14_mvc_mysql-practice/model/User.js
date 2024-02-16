@@ -85,7 +85,7 @@ exports.edit_profile = (data, cb) => {
   };
   
   // POST /user/profile/delete
-  // 회원 정보 삭제
+  // 회원 정보 삭제 / 삭제
   exports.delete_profile = (id, cb) => {
     console.log("model delete id", id);
     const sql = `DELETE FROM user WHERE id=${id}`;
