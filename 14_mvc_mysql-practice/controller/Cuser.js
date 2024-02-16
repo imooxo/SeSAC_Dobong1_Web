@@ -57,3 +57,21 @@ exports.get_signup = (req, res) => {
         res.render('profile', {data:result}); //전체 데이터 넘겨주기
     });
   };
+
+  // POST /user/profile/edit
+  // 회원정보 수정 요청
+  exports.edit_profile = (req,res)=>{
+    console.log(req.body); 
+    User.edit_profile(req.body, () => {
+        res.end();
+    });
+  };
+
+  // POST /user/profile/delete
+  // 회원정보 삭제
+  exports.delete_profile = (req, res)=>{
+    console.log(req.body); // {id: form.id.value}
+    User.delete_profile(req.body.id, ()=>{
+        res.end();
+    })
+  }

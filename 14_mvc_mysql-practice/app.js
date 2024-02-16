@@ -14,6 +14,9 @@ const userRouter =require('./routes/user');
 app.use('/user',userRouter)
 
 // TODO: 404 에러 처리
+app.get("*", (req, res) => {
+  res.render("404");
+});
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}/user`);

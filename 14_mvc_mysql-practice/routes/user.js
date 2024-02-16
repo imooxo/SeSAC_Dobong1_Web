@@ -11,13 +11,13 @@ router.get("/signup", controller.get_signup);
 
 // POST /user/signup
  router.post("/signup", controller.post_signup);
-// // POST /user/signin
+// POST /user/signin
  router.post("/signin", controller.post_signin);
-// // POST /user/profile
+// POST /user/profile
  router.post("/profile", controller.post_profile);
 // // POST /user/profile/edit
-// router.post("/profile/edit", controller.edit_profile);
+router.post("/profile/edit", controller.edit_profile);
 // // POST /user/profile/delete
-// router.post("/profile/delete", controller.delete_profile);
+router.post("/profile/delete", controller.delete_profile);
 
 module.exports = router;
