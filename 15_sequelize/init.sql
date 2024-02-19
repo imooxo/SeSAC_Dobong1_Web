@@ -14,6 +14,8 @@ insert into visitor values(null, "홍길동","홍길동 입니다.");
 
 SELECT * from visitor;
 
+select * from user;
+
 ##### [DCL] #####
 -- 새로운 user만들기 1
 CREATE USER "sesac"@"%" IDENTIFIED BY 'rpass';

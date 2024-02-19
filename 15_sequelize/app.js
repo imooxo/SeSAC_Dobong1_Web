@@ -12,9 +12,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // 라우터 분리
+// /index
+// const indexRouter = require('./routes/index')
 const indexRouter = require("./routes");
 app.use("/", indexRouter);
-// const indexRouter = require('./routes/index')
+
+// /user [추가]
+const userRouter = require("./routes/user");
+app.use("/user", userRouter);
 
 // 404 error
 app.get("*", (req, res) => {

@@ -109,5 +109,8 @@ exports.patchVisitor = (req, res) => {
     {
       where: { id: req.body.id },
     }
-  );
+  ).then((result)=>{
+    console.log(result);
+    res.send("수정 완료");
+  });
 };
