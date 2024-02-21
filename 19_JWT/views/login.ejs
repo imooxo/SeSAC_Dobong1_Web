@@ -21,7 +21,7 @@
     // POST, /login
     async function login() {
       const form = document.forms["login-form"];
-      const response = axios({
+      const response = await axios({
         method: "POST",
         url: "/login",
         data: {
@@ -31,6 +31,14 @@
       });
 
       console.log(response.data);
+      // {result, token}
+      // {result, message}
+
+      const {
+        result,
+        token,
+        message
+      } = response.data;
     }
   </script>
 </body>
