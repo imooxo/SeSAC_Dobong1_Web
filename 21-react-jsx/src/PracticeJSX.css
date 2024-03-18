@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    flex-direction: column; /*세로 정렬*/
+    align-items: center; /*가운데 정렬*/
+}
+
+.title{
+    background-color: bisque;
+    color: brown;
+    width: 500px;
+    text-align: center; /*글씨 가운데 정렬*/
+}
