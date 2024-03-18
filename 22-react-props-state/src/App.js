@@ -1,6 +1,17 @@
 import { ClassProps, ClassProps2 } from "./components/ClassProps";
 import { FunctionProps, FunctionProps2 } from "./components/FunctionProps";
 
+import ClassState from "./components/ClassState";
+import FunctionState from "./components/FunctionState";
+
+import PracticeProps from "./practice/PracticeProps";
+import PracticeProps2 from "./practice/PracticeProps2";
+import PracticeProps3 from "./practice/PracticeProps3";
+
+
+import PracticeState from "./practice/PracticeState";
+import PororoObj from "./practice/PororoObj";
+
 function App() {
   return (
     <div className="App">
@@ -24,6 +35,19 @@ function App() {
         </section>
       </FunctionProps2>
 
+      <h1>hello, state</h1>
+      <ClassState/>
+      <FunctionState/>
+
+      <h1>Props 실습</h1>
+      <PracticeProps/>
+      <PracticeProps2 title="별을 따라" author="엄경희" price="13,500원" type="시집"/>
+      <PracticeProps3/>
+
+      
+      <h1>State 실습(함수형 컴포넌트)</h1>
+      <PracticeState/>
+      <PororoObj/>
     </div>
   );
 }

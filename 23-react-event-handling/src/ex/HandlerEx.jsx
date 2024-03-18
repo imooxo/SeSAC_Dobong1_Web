@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const HandleEx = () => {
+const HandlerEx = () => {
     const [text, setText] = useState("Hello World");
 
     const changeText = () => {
@@ -14,5 +14,5 @@ const HandleEx = () => {
     );
 };
 
-export default HandleEx;
+export default HandlerEx;
 
