@@ -3,6 +3,7 @@ import SyntheticEvent from "./SyntheticEvent";
 import HandlerEx from "./ex/HandlerEx";
 import HandlerEx2 from "./ex/HandlerEx2";
 import HandlerEx3 from "./ex/HandlerEx3";
+import EntirePractice from "./practice/EntirePractice";
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
       <h2>핸들링 실습3</h2>
       <HandlerEx3/>
       <hr/>
+      <h2 style={{textAlign:"center"}}>핸들링 실습4</h2>
+      <EntirePractice/>
     </div>
   );
 }
