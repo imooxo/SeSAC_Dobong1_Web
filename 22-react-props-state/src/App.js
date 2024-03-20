@@ -11,11 +11,19 @@ import PracticeProps3 from "./practice/PracticeProps3";
 
 import PracticeState from "./practice/PracticeState";
 import PororoObj from "./practice/PororoObj";
+import PropsMap from "./practice/PropsMap";
 
 function App() {
+  const dataArr = [
+    {name:"peach", number:5, price:5000},
+    {name:"banana", number:1, price:3000},
+    {name:"apple", number:10, price:7000},
+    {name:"grape", number:2, price:8500},
+
+  ]
   return (
     <div className="App">
-      <h1>hello, props</h1>
+      {/*<h1>hello, props</h1>
       <ClassProps name="루피" color="pink" nickname="공주" />
       <ClassProps name="뽀로로" color="blue" nickname="사고뭉치" />
       <ClassProps2 
@@ -47,9 +55,15 @@ function App() {
       
       <h1>State 실습(함수형 컴포넌트)</h1>
       <PracticeState/>
-      <PororoObj/>
+  <PororoObj/> */}
+
+      <h1>map과 filter 사용</h1>
+      <PropsMap arr = {dataArr}/>      <PropsMap arr = {dataArr}/>
+
+
     </div>
   );
+
 }
 
 export default App;
