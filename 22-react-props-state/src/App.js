@@ -12,6 +12,9 @@ import PracticeProps3 from "./practice/PracticeProps3";
 import PracticeState from "./practice/PracticeState";
 import PororoObj from "./practice/PororoObj";
 import PropsMap from "./practice/PropsMap";
+import Alphabet from "./practice/Alpahbet";
+import PracticeMap from "./practice/PracticeMap";
+import PracticeMap2 from "./practice/PracticeMap2";
 
 function App() {
   const dataArr = [
@@ -51,16 +54,19 @@ function App() {
       <PracticeProps/>
       <PracticeProps2 title="별을 따라" author="엄경희" price="13,500원" type="시집"/>
       <PracticeProps3/>
-
       
       <h1>State 실습(함수형 컴포넌트)</h1>
       <PracticeState/>
-  <PororoObj/> */}
+      <PororoObj/> 
 
       <h1>map과 filter 사용</h1>
-      <PropsMap arr = {dataArr}/>      <PropsMap arr = {dataArr}/>
+      { <PropsMap arr = {dataArr}/> 
+      <Alphabet/>*/ }
 
-
+      <h1>map 연습문제1</h1>
+      <PracticeMap/> <hr/><br/>
+      <h1>map 연습문제2</h1>
+      <PracticeMap2/>
     </div>
   );
 
