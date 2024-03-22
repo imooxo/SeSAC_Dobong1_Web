@@ -2,6 +2,9 @@ import LifeCycleClass from "./components/LifeCycleClass";
 import LifeCycleFunc from "./components/LifeCycleFunc";
 import { RefClass, RefClass2 } from "./components/RefClass";
 import { RefFunc1, RefFunc2 } from "./components/RefFunction";
+import Container from "./components/practice/Container";
+import FakePost from "./components/practice/FakePost";
+import PostList from "./components/practice/PostList";
 
 function App() {
     return (
@@ -14,7 +17,11 @@ function App() {
 
             <h1>life cycle</h1>
             {/* <LifeCycleClass/> */}
-            <LifeCycleFunc/>
+            {/* <LifeCycleFunc/> */}
+            <FakePost/>
+            <Container>
+                <PostList/>
+            </Container>
         </div>
     );
 }
