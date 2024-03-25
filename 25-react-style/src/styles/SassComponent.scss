@@ -50,3 +50,111 @@
       }
     }
   }
+
+  .container{
+    width: 100%;
+    background-color: gainsboro;
+    margin-bottom: 120px;
+    .box1{
+        @include box;
+        /*&:nth-child(1){
+            width: 100px;
+        }
+        &:nth-child(2){
+            width: 120px;
+        }
+        &:nth-child(3){
+            width: 140px;
+        }*/
+
+        // 박스가 20px씩 커지도록 for문 사용
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+              width: 80px +20px * $i;
+            }
+        }
+    }
+
+    .circle{
+        // @include circle($color-red, 0.8);
+        $circleBgColors:($color-orange, $color-yellow, $color-green);
+        // &:nth-of-type(1){
+        //     @include circle($color-red, 0.8);
+        // }
+        // &:nth-of-type(2){}
+        // &:nth-of-type(3){}
+
+
+        // each문은 index를 못 가져오니 index 메소드를 가져와야함
+        // 인덱스(배열, 변수)
+        // 반환값
+        @each $el in $circleBgColors{
+            // index($리스트, $리스트의 value)
+            // 반환값 리스트의 value에 대한 index:1,2,3...
+            $index:index($circleBgColors, $el);
+            &:nth-of-type(#{$index}){
+                @include circle($el, 0.8);
+            }
+        }
+    }
+
+    .box2{
+        @include box2();
+        &:nth-of-type(4){
+            @include box2($color-yellow, 20px, navy);
+        }
+
+        &:nth-of-type(5){
+            @include box2($color-orange, 30px, black);
+        }
+    }
+  }
+
+  // 이미지에 접근하기
+  .img-test{
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+    &.src-img{
+        // background-imgage 속성은 상대경로 사용
+        background-image: url("../assets/cat.jpg");
+    }
+
+    &.public-img{
+        // 상대경로가 아닌 public은 /로부터 접근
+        background-image: url("/assets/cat.jpg");
+    }
+  }
+
+  // 실습문제
+  .practice{
+    display: flex;
+    justify-content: space-evenly;
+    // > => 직계자식이라는 뜻
+    > div{
+        width: 100px;
+        height: 150px;
+        background-color: $color-blue;
+        margin: 50px 0;
+        border-radius: 10%;
+        box-shadow: $boxShadow;
+        cursor: pointer;
+
+        @for $i from 1 through 4{
+            &:nth-child(#{$i}){
+                background-image: url("/assets/practice#{$i}.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        // &:nth-child(1){
+        //     background-image: url("../assets/practice1.png");
+        // }
+        // &:nth-child(2){}
+        // &:nth-child(3){}
+        // &:nth-child(4){}
+
+    }
+  }
