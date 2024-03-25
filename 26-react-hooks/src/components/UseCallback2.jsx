@@ -16,7 +16,7 @@ export default function UseCallback2(){
     return(
         <>
             <input type="text" onChange={onChangeText}/>
-            <p>작성한 값:</p>
+            <p>작성한 값:{text}</p>
         </>
     )
 }
