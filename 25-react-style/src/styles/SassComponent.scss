@@ -1,0 +1,52 @@
+/* 
+ 1. 기본
+ - nesting
+ - 자기자신 선택&
+ - 변수 사용
+*/
+@import "utils";
+.div1 {
+    width: 100px;
+    height: 100px;
+    background-color: $color-red;
+    .div2 {
+      width: 50%;
+      height: 50%;
+      background-color: $color-orange;
+      box-shadow: inset $boxShadow;
+      .div3 {
+        background-color: $color-yellow;
+        width: 50%;
+        height: 50%;
+        box-shadow: $boxShadow;
+      }
+    }
+  
+    .btn {
+      display: inline-block;
+      transition: 0.4s;
+      width: 33%;
+      font-size: 8px;
+      height: 40px;
+      padding: 0;
+      color: white;
+  
+      // .btn.orangered
+      &.orangered {
+        background-color: orangered;
+      }
+  
+      // .btn--opacity
+      &--opacity {
+        background-color: $color_blue;
+        opacity: 0.5;
+        &:hover {
+          opacity: 0.2;
+        }
+      }
+  
+      &--blue {
+        background-color: $color-blue;
+      }
+    }
+  }
