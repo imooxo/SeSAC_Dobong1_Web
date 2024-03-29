@@ -1,0 +1,12 @@
+main{
+    .ListContainer{
+        .TodoList{
+            border: 2px dashed papayawhip;
+            color: pink;
+        }
+        .DoneList{
+            border: 2px dashed salmon;
+            color: coral;
+        }
+    }
+}
