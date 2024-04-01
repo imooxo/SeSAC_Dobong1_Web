@@ -126,47 +126,47 @@ const initialState = {
       },
     },
   };
-
-  const CHECK = "mbti/CHECK"
-  const NEXT = "mbti/NEXT"
-  const RESET = "mbti/RESET"
-
-  export function check(result){
+  
+  const CHECK = "mbti/CHECK";
+  const NEXT = "mbti/NEXT";
+  const RESET = "mbti/RESET";
+  
+  export function check(result) {
     return {
-        type:CHECK,
-        payload: {result},
+      type: CHECK,
+      payload: { result },
     };
   }
-  export function next(){
+  
+  export function next() {
     return {
-        type:NEXT,
+      type: NEXT,
     };
   }
-  export function reset(){
+  export function reset() {
     return {
-        type: RESET,
+      type: RESET,
     };
   }
-
   export function mbti(state = initialState, action) {
-    switch(action.type){
-        case CHECK:
-            return {
-                ...state,
-                mbtiResult: state.mbtiResult
-            };
-        case NEXT:
-            return {
-                ...state, // 전체 데이터 가져오기
-                page: state.page + 1,
-            };
-        case RESET:
-            return {
-                ...state,
-                page: 0,
-                mbtiResult: "",
-            }
-        default:
-            return state;
+    switch (action.type) {
+      case CHECK:
+        return {
+          ...state,
+          mbtiResult: state.mbtiResult + action.payload.result, // 'IS'+ 'F'
+        };
+      case NEXT:
+        return {
+          ...state,
+          page: state.page + 1,
+        };
+      case RESET:
+        return {
+          ...state,
+          page: 0,
+          mbtiResult: "",
+        };
+      default:
+        return state;
     }
   }
