@@ -45,4 +45,44 @@ function arrElement<T>(arr: T[], index:number):T|boolean{
     }
     return arr[index];
 }
-console.log(arrElement<string>(["a"],1));
+console.log(arrElement<string>(["a"],1)); // false
+
+// ##### interface & generic ######
+interface Phone<T> {
+    company : string;
+    createAt: Date;
+    option: T;
+}
+
+// T 타입으로 string을 사용
+const iphone15: Phone<string> = {
+    company : "apple",
+    createAt: new Date("2023-10-13"),
+    option: "black",
+};
+
+// T 타입으로 객체타입을 사용
+type iphoneOption = {
+    color: string;
+    storage: number;
+};
+
+const iphone16: Phone<iphoneOption> = {
+    company : "apple",
+    createAt: new Date("2024-10-06"),
+    option: {
+        color: "black",
+        storage: 256,
+    },
+};
+console.log("=============");
+console.log(iphone15); // {company: 'apple', createAt: 2023-10-13T00:00:00.000Z, option: 'black'}
+console.log(iphone16); // {company: 'apple', createAt: 2024-10-06T00:00:00.000Z, option: { color: 'black', storage: 256 } }
+
+
+// 타임스크립트는 초기화된 값을 바탕으로 타입을 자동추론함
+let aa = 1;
+let bb = "string";
+let cc = true;
+
+// aa = "안녕하세요"; // 불가능(aa가 number형으로 자동추론됨)
