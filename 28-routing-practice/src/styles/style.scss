@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+}
+
+// header
+header{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+    .menu-item{
+        margin: 0 20px;
+        color: olive;
+        text-decoration: none;
+    }
+}
+
+// main page
+.MainPage {
+    background-color: #ffe5e3;
+    min-height: 100vh;
+  
+    &.dark {
+      background-color: #333;
+      color: white;
+    }
+  }
