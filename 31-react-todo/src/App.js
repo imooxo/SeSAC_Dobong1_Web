@@ -4,7 +4,7 @@ import "./styles/style.scss";
 function App() {
   return (
     <main>
-      <ListContainer/>
+      <ListContainer />
     </main>
   );
 }
