@@ -32,7 +32,16 @@ app.get("/api", (req, res) => {
 });
 
 // POST /api/users >> user row 하나 추가 
-
+app.post("/api/users", async (req, res)=> {
+    try{
+        const {username, email} = req.body;
+        const user = await User.create({username, email});
+        console.log(user); // {}
+    }catch(err){
+        console.log(err);
+        res.send({message: "서버 오류"});
+    }
+});
 
 sequelize.sync({force:false}).then(()=>{
     console.log("테이블 생성 완료!")
